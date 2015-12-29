@@ -35,7 +35,18 @@
 #
 # Copyright 2015 Your name here, unless otherwise noted.
 #
-class jenkins_additions {
+class jenkins_additions (
+  $jenkins_url,
+  $admin_address,
+) {
 
+  include jenkins
+
+  file { "${::jenkins::localstatedir}/jenkins.model.JenkinsLocationConfiguration.xml":
+    owner   => "${::jenkins::user}",
+    group   => "${::jenkins::group}",
+    mode    => '0644',
+    content => template('jenkins_additions/jenkins.model.JenkinsLocationConfiguration.xml.erb'),
+  }
 
 }
