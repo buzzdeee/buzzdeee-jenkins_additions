@@ -28,7 +28,7 @@ class jenkins_additions::sidebar_links (
     concat::fragment { 'sidebar-link-header':
       target  => $sidebar_link_xml,
       content => template('jenkins_additions/sidebar_link.xml-header.erb'),
-      order   => '01',
+      order   => '001',
     }
     concat::fragment { 'sidebar-link-footer':
       target  => $sidebar_link_xml,
@@ -37,6 +37,9 @@ class jenkins_additions::sidebar_links (
     }
 
   }
+
+  Concat[$sidebar_link_xml] ~>
+  Service['jenkins']
 
 
 }

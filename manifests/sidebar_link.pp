@@ -8,7 +8,7 @@ define jenkins_additions::sidebar_link (
   $ensure = 'present',
 ) {
 
-  require jenkins_additions::sidebar_links
+  include jenkins_additions::sidebar_links
 
   if $linkicon_content {
     file { "${::jenkins::localstatedir}/userContent/${linkicon_name}":
@@ -16,7 +16,7 @@ define jenkins_additions::sidebar_link (
       owner   => $::jenkins::user,
       group   => $::jenkins::group,
       mode    => '0644',
-      content => $linkicon_content,
+      content => base64('decode', $linkicon_content),
     }
   }
 
@@ -24,7 +24,7 @@ define jenkins_additions::sidebar_link (
     concat::fragment { "sidebar-link-${linktext}":
       target  => "${::jenkins::localstatedir}/sidebar-link.xml",
       content => template('jenkins_additions/sidebar_link.xml-link.erb'),
-      order   => '10',
+      order   => '010',
     }
   }
 
