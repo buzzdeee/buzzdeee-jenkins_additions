@@ -49,4 +49,7 @@ class jenkins_additions (
     content => template('jenkins_additions/jenkins.model.JenkinsLocationConfiguration.xml.erb'),
   }
 
+  File["${::jenkins::localstatedir}/jenkins.model.JenkinsLocationConfiguration.xml"] ~>
+  Service['jenkins']
+
 }
