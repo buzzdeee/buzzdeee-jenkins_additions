@@ -19,7 +19,7 @@ class jenkins_additions::sidebar_links (
     }
 
     concat { $sidebar_link_xml:
-      ensure => $ensure,
+      ensure => 'present',
       owner  => $::jenkins::user,
       group  => $::jenkins::group,
       mode   => '0644',
