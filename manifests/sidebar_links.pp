@@ -38,6 +38,7 @@ class jenkins_additions::sidebar_links (
 
   }
 
+  Package[$::jenkins::package_name] ->
   Concat[$sidebar_link_xml] ~>
   Service['jenkins']
 
