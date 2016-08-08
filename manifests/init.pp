@@ -37,6 +37,7 @@
 #
 class jenkins_additions (
   $jenkins_url,
+  $jenkins_path = undef,
   $admin_address,
 ) {
 

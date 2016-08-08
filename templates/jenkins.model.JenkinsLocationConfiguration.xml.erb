@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jenkins.model.JenkinsLocationConfiguration>
   <adminAddress><%= @admin_address.gsub(/</, '&lt;').gsub(/>/, '&gt;') %></adminAddress>
-  <jenkinsUrl><%= @jenkins_url << '/' unless @jenkins_url.end_with?('/') %></jenkinsUrl>
+<% if @jenkins_path -%>
+  <jenkinsUrl><%= @jenkins_url + @jenkins_path + '/' unless @jenkins_path.end_with?('/') %></jenkinsUrl>
+<% else -%>
+  <jenkinsUrl><%= @jenkins_url + '/' unless @jenkins_url.end_with?('/') %></jenkinsUrl>
+<% end -%>
 </jenkins.model.JenkinsLocationConfiguration>
