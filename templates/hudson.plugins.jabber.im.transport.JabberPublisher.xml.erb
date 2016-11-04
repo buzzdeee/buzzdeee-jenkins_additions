@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.jabber.im.transport.JabberPublisherDescriptor plugin="jabber@1.35">
+  <enabled><%= @jabber_enabled %></enabled>
+  <port><%= @jabber_port %></port>
+  <hudsonNickname><%= @jabber_jid %></hudsonNickname>
+  <hudsonPassword><%= @jabber_encoded_password %></hudsonPassword>
+  <groupChatNickname><%= @jabber_nickname %></groupChatNickname>
+  <exposePresence><%= @jabber_expose_presence %>/exposePresence>
+  <acceptAllCerts><%= @jabber_accept_all_certs %></acceptAllCerts>
+  <scrambledPasswords><%= @jabber_scramble_passwords %></scrambledPasswords>
+  <defaultTargets/>
+  <commandPrefix><%= @jabber_command_prefix %></commandPrefix>
+  <defaultIdSuffix><%= @jabber_default_suffix %></defaultIdSuffix>
+  <subscriptionMode><%= @jabber_subscription_mode %></subscriptionMode>
+  <emailAddressAsJabberId><%= @jabber_email_address_jabber_id %></emailAddressAsJabberId>
+  <proxyType><%= @jabber_proxy_type %></proxyType>
+  <proxyPort><%= @jabber_proxy_port %></proxyPort>
+</hudson.plugins.jabber.im.transport.JabberPublisherDescriptor>
