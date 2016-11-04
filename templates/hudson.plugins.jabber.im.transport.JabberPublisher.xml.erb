@@ -3,9 +3,9 @@
   <enabled><%= @jabber_enabled %></enabled>
   <port><%= @jabber_port %></port>
   <hudsonNickname><%= @jabber_jid %></hudsonNickname>
-  <hudsonPassword><%= @jabber_encoded_password %></hudsonPassword>
+  <hudsonPassword><%= @jabber_encoded_password.strip %></hudsonPassword>
   <groupChatNickname><%= @jabber_nickname %></groupChatNickname>
-  <exposePresence><%= @jabber_expose_presence %>/exposePresence>
+  <exposePresence><%= @jabber_expose_presence %></exposePresence>
   <acceptAllCerts><%= @jabber_accept_all_certs %></acceptAllCerts>
   <scrambledPasswords><%= @jabber_scramble_passwords %></scrambledPasswords>
   <defaultTargets/>
