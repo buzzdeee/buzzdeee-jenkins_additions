@@ -5,6 +5,7 @@ define jenkins_additions::sidebar_link (
   $linktext,
   $linkicon_name,
   $linkicon_content = undef,  # allow to have multiple links with same icon
+  $linkicon_source = undef,  # allow to have multiple links with same icon
   $ensure = 'present',
 ) {
 
@@ -17,6 +18,15 @@ define jenkins_additions::sidebar_link (
       group   => $::jenkins::group,
       mode    => '0644',
       content => base64('decode', $linkicon_content),
+    }
+  }
+  if $linkicon_source {
+    file { "${::jenkins::localstatedir}/userContent/${linkicon_name}":
+      ensure  => $ensure,
+      owner   => $::jenkins::user,
+      group   => $::jenkins::group,
+      mode    => '0644',
+      source  => $linkicon_source,
     }
   }
 
